@@ -19,8 +19,16 @@ L'envoi mesuré dépasse le palier parce qu'un test d'une dizaine de secondes
 inclut les deux secondes de rafale ; le débit soutenu n'a pas été mesuré sur
 une durée longue. Le débit après expiration n'a pas été remesuré au téléphone.
 
-Non testé : plusieurs clients simultanés et nombre maximal de clients de la
-puce, redémarrage du Pi, isolation entre deux invités, usurpation d'adresse.
+Compléments du même jour :
+
+- Redémarrage du Pi : point d'accès, table `wifi_gate` et partage
+  NetworkManager rétablis sans intervention ; les paliers en cours ne
+  survivent pas au redémarrage.
+- Un balayage Wi-Fi (`nmcli dev wifi rescan`) pendant l'émission du point
+  d'accès aboutit et ne déconnecte pas les deux stations associées.
+
+Non testé : nombre maximal de clients de la puce, isolation entre deux
+invités, usurpation d'adresse, charge avec plusieurs clients actifs.
 
 ## Particularité de l'hôte
 
