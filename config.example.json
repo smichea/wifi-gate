@@ -1,0 +1,10 @@
+{
+  "interface": "wlan0",
+  "subnet": "10.20.0.0/24",
+  "default_kbit": 256,
+  "tiers": {
+    "fast": 2000,
+    "max": 10000
+  },
+  "host_tcp_ports": []
+}

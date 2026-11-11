@@ -1,0 +1,14 @@
+[Unit]
+Description=Guest Wi-Fi gate: isolation and per-device rate tiers
+After=network-pre.target
+Before=NetworkManager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/wifi-gate apply
+ExecReload=/usr/local/sbin/wifi-gate apply
+ExecStop=/usr/local/sbin/wifi-gate remove
+
+[Install]
+WantedBy=multi-user.target
