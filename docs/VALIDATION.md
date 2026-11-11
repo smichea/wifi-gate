@@ -37,3 +37,13 @@ rejette par défaut. Il a fallu y autoriser, sur l'interface invitée, DHCP
 (`udp sport 68 dport 67`) et DNS depuis le sous-réseau invité. `wifi-gate`
 ne modifie pas les tables des autres ; sur un hôte doté d'un pare-feu
 restrictif, ces deux ouvertures sont à ajouter à la main.
+
+## DNS derrière un routeur 5G (2026-11-11)
+
+Derrière un routeur DITO Home, la moitié des requêtes DNS d'un téléphone invité
+restaient sans réponse dans les secondes suivant le changement de réseau
+(8 sur 16 dans une capture de 26 s), alors que les connexions TCP aboutissaient.
+Le routeur annonce un résolveur IPv4 et deux résolveurs IPv6. Avec
+`deploy/dnsmasq-shared.conf` (`all-servers` plus deux résolveurs publics), le
+téléphone a retrouvé un accès normal. La cause exacte n'a pas été isolée : aucune
+capture n'a été refaite après le correctif.
